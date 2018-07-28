@@ -6,3 +6,5 @@
 *.iml
 *.ipr
 
+/src/main/java/Powerball.java
+/src/main/java/com/peterholub/gongxigamestask/Powerball.java

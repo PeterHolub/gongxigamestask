@@ -1,0 +1,52 @@
+<!DOCTYPE >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+
+    <title>Register Ticket</title>
+</head>
+
+<body>
+<div id="keypad" class="keybord">
+    <h4 style="color: #528ECC; text-align: center ">Register your Ticket</h4>
+    <form th:action="@{/index}" method="post">
+        <h6 style="color: #528ECC">(Enter numbers from 1 to 69 for white ball, and from 1 to 26 for powerball)</h6>
+        <table align="center" border="0">
+            <tr>
+                <td>First Number:</td>
+                <td><input type="number" min="1" max="69" name="firstNumber" required value="" size="8"/></td>
+            </tr>
+
+            <tr>
+                <td>Second Number:</td>
+                <td><input type="number" min="1" max="69" name="secondNumber" required value="" size="8"/></td>
+            </tr>
+
+            <tr>
+                <td>Third Number:</td>
+                <td><input type="number" min="1" max="69" name="thirdNumber" required value="" size="8"/></td>
+            </tr>
+
+            <tr>
+                <td>Fourth Number</td>
+                <td><input type="number" min="1" max="69" name="fourthNumber" required value="" size="8"/></td>
+            </tr>
+            <tr>
+                <td>Fifth Number</td>
+                <td><input type="number" min="1" max="69" name="fifthNumber" required value="" size="8"/></td>
+            </tr>
+
+            <tr>
+                <td> Powerball Number:</td>
+                <td><input type="number" min="1" max="26" name="powerBall" required value="" size="8"/></td>
+            </tr>
+        </table>
+
+        <div align="left" style="margin-left:130px; margin-top: 25px">
+            <input type="submit" value="Enter" class="myButton">
+        </div>
+    </form>
+</div>
+</body>
+</html>
