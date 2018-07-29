@@ -8,38 +8,71 @@
 </head>
 
 <body>
+<script>
+function validation() {
+var firstNumber = Number(document.getElementById('firstNumber').value);
+var secondNumber = Number(document.getElementById('secondNumber').value);
+var thirdNumber = Number(document.getElementById('thirdNumber').value);
+var fourthNumber = Number(document.getElementById('fourthNumber').value);
+var fifthNumber = Number(document.getElementById('fourthNumber').value);
+
+var arrayValues = [firstNumber,secondNumber,thirdNumber,fourthNumber,fifthNumber];
+
+// for (var i = 0; i <arrayValues ; i++) {
+//     for (var j = 0; j <arrayValues-1-i; j++) {
+//         if(arrayValues[i]===arrayValues[j]){
+//             alert("Numbers must be unique");
+//             return false;
+//         }
+//
+//     }
+// }
+
+if(fifthNumber ==15){
+alert("Numbers must be unique");
+return false;
+}
+else {
+return true
+}
+}
+</script>
+
+
+
+
 <div id="keypad" class="keybord">
     <h4 style="color: #528ECC; text-align: center ">Register your Ticket</h4>
-    <form th:action="@{/index}" method="post">
+    <form th:action="@{/play}" method="post">
         <h6 style="color: #528ECC">(Enter numbers from 1 to 69 for white ball, and from 1 to 26 for powerball)</h6>
         <table align="center" border="0">
             <tr>
                 <td>First Number:</td>
-                <td><input type="number" min="1" max="69" name="firstNumber" required value="" size="8"/></td>
+                <td><input type="number" min="1" max="69" name="firstNumber" id="firstNumber" required value="" size="8"/></td>
             </tr>
 
             <tr>
                 <td>Second Number:</td>
-                <td><input type="number" min="1" max="69" name="secondNumber" required value="" size="8"/></td>
+                <td><input type="number" min="1" max="69" name="secondNumber" id="secondNumber" required value="" size="8"/></td>
             </tr>
 
             <tr>
                 <td>Third Number:</td>
-                <td><input type="number" min="1" max="69" name="thirdNumber" required value="" size="8"/></td>
+                <td><input type="number" min="1" max="69" name="thirdNumber" id="thirdNumber" required value="" size="8"/></td>
             </tr>
 
             <tr>
                 <td>Fourth Number</td>
-                <td><input type="number" min="1" max="69" name="fourthNumber" required value="" size="8"/></td>
+                <td><input type="number" min="1" max="69" name="fourthNumber" id="fourthNumber" required value="" size="8"/></td>
             </tr>
             <tr>
                 <td>Fifth Number</td>
-                <td><input type="number" min="1" max="69" name="fifthNumber" required value="" size="8"/></td>
+                <td><input type="number" min="1" max="69" name="fifthNumber"  id="fifthNumber" required value="" size="8"/></td>
             </tr>
 
             <tr>
                 <td> Powerball Number:</td>
-                <td><input type="number" min="1" max="26" name="powerBall" required value="" size="8"/></td>
+                <td><input type="number" min="1" max="26" name="powerBallNumber" required value="" size="8"/></td>
             </tr>
         </table>
 
