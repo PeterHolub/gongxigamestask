@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>Powerball</name>
-    <description>Gong XI Games project for Spring Boot</description>
+    <description>Powerball lottery project for Spring Boot</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

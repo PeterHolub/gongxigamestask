@@ -9,25 +9,28 @@ import java.util.stream.*;
 @Service
 public class Powerball {
 
-    private Random random = new Random();
 
+    //method to simulate draw
     public List<Integer> draw() {
+
+        Random random = new Random();
         //generating list of numbers from 1 to 69
-        List<Integer> drawList = IntStream.range(1, 69).boxed().collect(Collectors.toCollection(ArrayList::new));
+        List<Integer> generateNumbers = IntStream.range(1, 69).boxed().collect(Collectors.toCollection(ArrayList::new));
         //shuffle the list
-        Collections.shuffle(drawList);
-        //remove values
-        drawList.subList(0, 5);
+        Collections.shuffle(generateNumbers);
+        //take 5 random numbers
+        List<Integer> randomNumbers = generateNumbers.subList(0, 5);
         //generate powerball value
         int powerball = random.nextInt(26) + 1;
 
-        drawList.add(powerball);
-        return drawList;
+        randomNumbers.add(powerball);
+
+        return randomNumbers;
     }
 
-
+    //checking what indexes are matched from the ticket in compare with draw numbers
     public List<Integer> winningNumbers(List<Integer> ticket, List<Integer> draw) {
-        //checking what indexes are matched from the ticket in compare with draw numbers
+
         List<Integer> winningNumbers = new ArrayList<>();
         int index;
 
@@ -44,9 +47,9 @@ public class Powerball {
         return winningNumbers;
     }
 
-    // method that check winning combo for ticket, by list size and "if contains index 5" (which is index of  powerball value)
+    // method that check winning combo for each ticket, by list size and "if contains index 5" (which is index of  powerball value)
     public int ticketWinningCombo(List<Integer> winningNumbers) {
-
+        //init value 0, if no winning, this value will be not overwriting, otherwise, it will overwrite with a number of winning combo
         int winningCombo = 0;
 
         //5+1
@@ -111,9 +114,18 @@ public class Powerball {
         return winningCombo;
     }
 
-    public int statistic() {
+    public List<Integer> collectTicketWins(List<List> allTickets, List<Integer> draw) {
 
-        return 0;
+        List<Integer> ticketWins = new ArrayList<>();
+
+        for (List ticket : allTickets) {
+
+            List<Integer> winningNumbers = winningNumbers(ticket, draw);
+            int winningCombo = ticketWinningCombo(winningNumbers);
+
+            ticketWins.add(winningCombo);
+        }
+        return ticketWins;
     }
 
 
