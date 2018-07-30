@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.peterholub</groupId>
-    <artifactId>gongxigamestask</artifactId>
+    <artifactId>powerball</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>GongXiGamesTask</name>
+    <name>Powerball</name>
     <description>Gong XI Games project for Spring Boot</description>
 
     <parent>

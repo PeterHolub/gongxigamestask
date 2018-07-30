@@ -1,6 +1,6 @@
-package com.peterholub.gongxigamestask.powerball;
+package com.peterholub.powerball.powerballengine;
 
-import com.peterholub.gongxigamestask.powerball.powerballconstants.PowerballConstants;
+import com.peterholub.powerball.powerballengine.powerballconstants.PowerballConstants;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -25,9 +25,29 @@ public class Powerball {
         return drawList;
     }
 
-    public String collectWins(List<Integer> winningNumbers) {
 
-        String winningCombo = "You are win nothing";
+    public List<Integer> winningNumbers(List<Integer> ticket, List<Integer> draw) {
+        //checking what indexes are matched from the ticket in compare with draw numbers
+        List<Integer> winningNumbers = new ArrayList<>();
+        int index;
+
+        for (int i = 0; i < ticket.size(); i++) {
+            for (int j = 0; j < ticket.size(); j++) {
+
+                if (ticket.get(i).equals(draw.get(j))) {
+                    index = i;
+                    winningNumbers.add(index);
+
+                }
+            }
+        }
+        return winningNumbers;
+    }
+
+    // method that check winning combo for ticket, by list size and "if contains index 5" (which is index of  powerball value)
+    public int ticketWinningCombo(List<Integer> winningNumbers) {
+
+        int winningCombo = 0;
 
         //5+1
         if (winningNumbers.size() == 6) {
@@ -88,25 +108,13 @@ public class Powerball {
             winningCombo = PowerballConstants.WINNING_COMBO_0_PLUS_1;
         }
 
-
         return winningCombo;
     }
 
-    public List<Integer> winningNumbers(List<Integer> ticket, List<Integer> draw) {
+    public int statistic() {
 
-        List<Integer> winningNumbers = new ArrayList<>();
-        int index;
-
-        for (int i = 0; i < ticket.size(); i++) {
-            for (int j = 0; j < ticket.size(); j++) {
-
-                if (ticket.get(i).equals(draw.get(j))) {
-                    index = i;
-                    winningNumbers.add(index);
-
-                }
-            }
-        }
-        return winningNumbers;
+        return 0;
     }
+
+
 }

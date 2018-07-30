@@ -1,6 +1,6 @@
-package com.peterholub.gongxigamestask.controller;
+package com.peterholub.powerball.controller;
 
-import com.peterholub.gongxigamestask.powerball.Powerball;
+import com.peterholub.powerball.powerballengine.Powerball;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,14 +28,24 @@ public class IndexController {
                                  Model model) {
         //Register ticket
         List<Integer> ticket = Arrays.asList(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber, powerBallNumber);
+        //Checking that numbers for white balls are unique
+        for (int i = 0; i < ticket.size(); i++) {
+            for (int j = 0; j < ticket.size() - 1 - i; j++) {
+                if (ticket.get(i).equals(ticket.get(j))) {
+
+                    return "error";
+                }
+            }
+        }
+
         //Making draw numbers
         List<Integer> draw = powerball.draw();
         //Get winning numbers
         List<Integer> winningNumbers = powerball.winningNumbers(ticket, draw);
         //Prints outcome
-        String result = powerball.collectWins(winningNumbers);
+//        String result = powerball.collectWins(winningNumbers);
 
-        model.addAttribute("result", result);
+//        model.addAttribute("result", result);
         return "result";
     }
 }
