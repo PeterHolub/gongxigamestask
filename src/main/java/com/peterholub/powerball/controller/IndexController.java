@@ -53,4 +53,9 @@ public class IndexController {
         return "draw";
 
     }
-}
+    @PostMapping("/index")
+    public String returnIndex (){
+
+        return "index";
+    }
+    }
