@@ -1,5 +1,5 @@
 # Powerball
-implementation of the lottery game Powerball
+Implementation of the lottery game Powerball
 ## Prerequisites
 * **JDK >= 1.8.0_131**;
 ## Project structure 

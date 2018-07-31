@@ -1,7 +1,6 @@
 package com.peterholub.powerball.repository;
 
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +17,4 @@ public class TicketRepository {
     public List<List> getTickets() {
         return pseudoRepository;
     }
-
-
 }

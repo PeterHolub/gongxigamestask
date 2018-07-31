@@ -2,15 +2,13 @@ package com.peterholub.powerball.powerballengine;
 
 import com.peterholub.powerball.powerballengine.powerballconstants.PowerballConstants;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
 import java.util.stream.*;
 
 @Service
 public class Powerball {
 
-
-    //method to simulate draw
+    //Method to simulate draw
     public List<Integer> draw() {
 
         Random random = new Random();
@@ -28,7 +26,7 @@ public class Powerball {
         return randomNumbers;
     }
 
-    //checking what indexes are matched from the ticket in compare with draw numbers
+    //Checking what indexes are matched from the ticket in compare with draw numbers
     public List<Integer> winningNumbers(List<Integer> ticket, List<Integer> draw) {
 
         List<Integer> winningNumbers = new ArrayList<>();
@@ -47,7 +45,7 @@ public class Powerball {
         return winningNumbers;
     }
 
-    // method that check winning combo for each ticket, by list size and "if contains index 5" (which is index of  powerball value)
+    // Method that check winning combo for each ticket, by list size and "if contains index 5" (which is index of  powerball value)
     public int ticketWinningCombo(List<Integer> winningNumbers) {
         //init value 0, if no winning, this value will be not overwriting, otherwise, it will overwrite with a number of winning combo
         int winningCombo = 0;
@@ -128,5 +126,31 @@ public class Powerball {
         return ticketWins;
     }
 
+    // Method that getting amount of winners for each combo using lambda + filter
+    public long [] statistic(List<Integer> ticketWins) {
+
+        //Getting total amount of players by list size
+        long totalPlayers = ticketWins.size();
+
+        long jackpot = ticketWins.stream().filter(i -> i == PowerballConstants.WINNING_COMBO_JACKPOT).mapToInt(i -> i).count();
+
+        long fivePlusZero = ticketWins.stream().filter(i -> i == PowerballConstants.WINNING_COMBO_5_PLUS_0).mapToInt(i -> i).count();
+
+        long fourPlusOne = ticketWins.stream().filter(i -> i == PowerballConstants.WINNING_COMBO_4_PLUS_1).mapToInt(i -> i).count();
+
+        long fourPlusZero = ticketWins.stream().filter(i -> i == PowerballConstants.WINNING_COMBO_4_PLUS_0).mapToInt(i -> i).count();
+
+        long threePlusOne = ticketWins.stream().filter(i -> i == PowerballConstants.WINNING_COMBO_3_PLUS_1).mapToInt(i -> i).count();
+
+        long threePlusZero = ticketWins.stream().filter(i -> i == PowerballConstants.WINNING_COMBO_3_PLUS_0).mapToInt(i -> i).count();
+
+        long twoPlusOne = ticketWins.stream().filter(i -> i == PowerballConstants.WINNING_COMBO_2_PLUS_1).mapToInt(i -> i).count();
+
+        long onePlusOne = ticketWins.stream().filter(i -> i == PowerballConstants.WINNING_COMBO_1_PLUS_1).mapToInt(i -> i).count();
+
+        long zeroPlusOne = ticketWins.stream().filter(i -> i == PowerballConstants.WINNING_COMBO_0_PLUS_1).mapToInt(i -> i).count();
+
+        return new long [] {jackpot,fivePlusZero,fourPlusOne,fourPlusZero,threePlusOne,threePlusZero,twoPlusOne,onePlusOne,zeroPlusOne,totalPlayers};
+    }
 
 }
