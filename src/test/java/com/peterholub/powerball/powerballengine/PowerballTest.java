@@ -44,9 +44,9 @@ public class PowerballTest {
 
         List<Integer> ticket = Arrays.asList(12, 14, 15, 16, 18, 21);
 
-        List<Integer> draw = Arrays.asList(12, 14, 15, 18, 19, 13);
+        List<Integer> draw = Arrays.asList(12, 14, 15, 18, 21, 13);
 
-        Method method = reflection.getDeclaredMethod("winningNumbers", List.class, List.class);
+        Method method = reflection.getDeclaredMethod("winningNumbersIndex", List.class, List.class);
 
         method.setAccessible(true);
 

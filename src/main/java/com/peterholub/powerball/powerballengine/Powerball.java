@@ -33,13 +33,20 @@ public class Powerball {
         List<Integer> winningNumbersIndex = new ArrayList<>();
         int index;
 
-        for (int i = 0; i < ticket.size(); i++) {
-            for (int j = 0; j < ticket.size(); j++) {
+        //checking if powerball numbers are match
+        if (ticket.get(5).equals(draw.get(5))) {
+
+            winningNumbersIndex.add(5);
+        }
+
+       //checking white balls
+        for (int i = 0; i < ticket.size()-1 ; i++) {
+            for (int j = 0; j < ticket.size()-1 ; j++) {
 
                 if (ticket.get(i).equals(draw.get(j))) {
                     index = i;
                     winningNumbersIndex.add(index);
-                    }
+                }
             }
         }
         return winningNumbersIndex;
@@ -128,7 +135,7 @@ public class Powerball {
     }
 
     // Method that getting amount of winners for each combo using lambda + filter
-    public long [] statistic(List <Integer> ticketWins) {
+    public long[] statistic(List<Integer> ticketWins) {
 
         //Getting total amount of players by list size
         long totalPlayers = ticketWins.size();
@@ -151,7 +158,16 @@ public class Powerball {
 
         long zeroPlusOne = ticketWins.stream().filter(i -> i == PowerballConstants.WINNING_COMBO_0_PLUS_1).mapToInt(i -> i).count();
 
-        return new long [] {jackpot,fivePlusZero,fourPlusOne,fourPlusZero,threePlusOne,threePlusZero,twoPlusOne,onePlusOne,zeroPlusOne,totalPlayers};
+        return new long[]{jackpot, fivePlusZero, fourPlusOne, fourPlusZero, threePlusOne, threePlusZero, twoPlusOne, onePlusOne, zeroPlusOne, totalPlayers};
     }
 
+    public  void experimentalProbability (long [] statistic){
+
+        long total = statistic[9];
+
+        long jackpot = statistic[0]/statistic[9];
+
+
+
+    }
 }

@@ -29,6 +29,7 @@ In the case with performing draw, the user will be redirected to the *result* pa
 ##Test
 * src\test\java\com.peterholub.powerball\powerballengine\PowerballTest.java - Test class with Unit tests for each method. 
 * src\test\java\com.peterholub.powerball\repository\TicketRepository.java - Test class with Unit tests for each method.
+* src\test\java\com.peterholub.powerball\IntegrationTest.java - Test class that performs full process, from ticket registration to draw statistic.
 ## Run 
 Run script for Test
 ```
