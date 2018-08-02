@@ -1,13 +1,18 @@
 package com.peterholub.powerball;
 
 import com.peterholub.powerball.pages.*;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.testng.annotations.*;
 import org.testng.Assert;
 
+
+
 public class FunctionalTest {
-    private WebDriver webDriver;
+   private WebDriver webDriver;
     private IndexPage indexPage;
     private DrawPage drawPage;
 

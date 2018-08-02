@@ -32,12 +32,15 @@ In the case with performing draw, the user will be redirected to the *result* pa
 * src\test\java\com.peterholub.powerball\IntegrationTest.java - Test class that performs full process, from ticket registration to draw statistic.
 * src\test\java\com.peterholub.powerball\FunctionalTest.java - Test class that performs with Selenium Web Driver functional testing.
 ## Run 
-Run script for Test
-```
-mvnw test
-```
+
 Run script for execution:
 ```
 mvnw spring-boot:run
 ```
 then open localhost:8080 in your favorite browser
+
+Run script for Test
+```
+mvnw test
+```
+after app run, needed for functional test run
