@@ -44,12 +44,12 @@
 
             <tr>
                 <td> Powerball Number:</td>
-                <td><input type="number" min="1" max="26" name="powerBallNumber" required value="" size="8"/></td>
+                <td><input type="number" min="1" max="26" name="powerBallNumber" id="powerBallNumber" required value="" size="8"/></td>
             </tr>
         </table>
 
         <div align="left" style="margin-left:130px; margin-top: 25px">
-            <input type="submit" value="Register Ticket" class="myButton">
+            <input type="submit" value="Register Ticket" class="myButton" id="submitTicket">
         </div>
     </form>
 
@@ -57,10 +57,10 @@
     <form th:action="@{/generate}" method="post">
         <tr>
             <td>Generate Tickets:</td>
-            <td><input type="number"  name="amount" required value="" size="5"/></td>
+            <td><input type="number"  name="amount" required value="" id="generator" size="5"/></td>
         </tr>
         <div align="center" style="margin-top: 25px">
-            <input type="submit" value="Generate amount of tickets" class="myButton">
+            <input type="submit" value="Generate amount of tickets" class="myButton" id="generateButton">
         </div>
     </form>
 </div>

@@ -11,14 +11,13 @@
 <div class="mainStyle">
     <form th:action="@{/draw}" method="post">
         <div align="center">
-            <input type="submit" value="Perform Draw" class="myButton">
+            <input type="submit" value="Perform Draw" id="drawSubmit" class="myButton" name="drawSubmit">
         </div>
     </form>
 
     <h4 style="color: #528ECC">Or</h4>
     <form action="/index" method="post">
-        <input type="submit" value="Register another ticket" class="myButton">
-
+        <input type="submit" value="Register another ticket" id="registerAnotherTicket" name="registerAnotherTicket" class="myButton" >
     </form>
 
 </div>
