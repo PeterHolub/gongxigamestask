@@ -1,5 +1,5 @@
 # Powerball
-Implementation of the lottery game Powerball
+Implementation of the lottery game Powerball using Spring Boot (Spring MVC with Thymeleaf), TestNg and Selenium Web Driver
 ## Prerequisites
 * **JDK >= 1.8.0_131**;
 ## Project structure 
